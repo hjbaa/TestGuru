@@ -1,0 +1,69 @@
+body {
+    background-image: url("assets/images/background.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+body:visited {
+    color: navy;
+}
+
+body:link {
+    color: mistyrose;
+}
+
+body:active {
+    color: plum;
+}
+
+#headline {
+    width: 55%;
+    height: 15%;
+    margin-top: 0;
+    margin-left: 32%;
+    border-radius: 15px 15px 15px 15px;
+    background: rgba(0, 255, 255, 0.3);
+}
+
+
+#main_block {
+    margin-top: 7%;
+    margin-right: 13%;
+    height: 70%;
+    width: 55%;
+    border-radius: 15px 15px 15px 15px;
+    background: rgba(0, 255, 255, 0.3);
+    float: right;
+}
+
+#body_div {
+    margin: 0 auto 0;
+    width: 90%;
+}
+
+#headline h1 {
+    color: MistyRose;
+    font-size: 48pt;
+    text-align: center;
+    font-style: italic;
+}
+
+#navigation_menu {
+    margin-top: 7%;
+    float: left;
+    width: 13%;
+    height: 20%;
+    border-radius: 15px 15px 15px 15px;
+    background: rgba(0, 255, 255, 0.3);
+}
+
+#navigation_menu ul {
+    padding-left: 35px;
+    padding-top: 10px;
+    font-size: 18pt;
+    color: MistyRose;
+}
+
+p {
+    color:MistyRose;
+}
