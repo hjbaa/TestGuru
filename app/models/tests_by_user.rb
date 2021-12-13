@@ -1,2 +1,3 @@
 class TestsByUser < ApplicationRecord
+
 end
