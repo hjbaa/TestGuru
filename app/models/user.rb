@@ -5,8 +5,4 @@ class User < ApplicationRecord
   def passed_tests(tests_level)
     Test.joins(:users).where(tests: { level: tests_level })
   end
-
-  def self.asd
-    User.joins(:tests)
-  end
 end

@@ -10,8 +10,4 @@ class Test < ApplicationRecord
       categories: { title: category_name }
     ).order(title: :desc).pluck(:title)
   end
-
-  def self.asd
-    Test.joins(:users)
-  end
 end
