@@ -23,6 +23,10 @@ Answer.create!([{ content: 'dcase()', question_id: questions[0].id },
                 { content: 'rails model g', question_id: questions[1].id },
                 { content: 'rails g model', question_id: questions[1].id, correct: true }])
 
-TestsByUser.create!([{ user_id: users[0].id, test_id: tests[0].id }, { user_id: users[0].id, test_id: tests[1].id },
-                     { user_id: users[0].id, test_id: tests[2].id }, { user_id: users[0].id, test_id: tests[3].id },
-                     { user_id: users[0].id, test_id: tests[4].id }])
+# TestsByUser.create!([{ user_id: users[0].id, test_id: tests[0].id }, { user_id: users[0].id, test_id: tests[1].id },
+#                      { user_id: users[0].id, test_id: tests[2].id }, { user_id: users[0].id, test_id: tests[3].id },
+#                      { user_id: users[0].id, test_id: tests[4].id }])
+
+tests.each do |test|
+  users[0].tests.push(test)
+end
