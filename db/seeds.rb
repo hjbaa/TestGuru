@@ -27,3 +27,5 @@ Answer.create!([{ content: 'dcase()', question: questions[0] },
 tests.each do |test|
   users[0].tests.push(test)
 end
+
+users[1].tests.push(tests[0])
