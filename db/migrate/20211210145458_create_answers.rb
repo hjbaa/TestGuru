@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Миграция, создающая модель ответов на вопросы
 class CreateAnswers < ActiveRecord::Migration[6.1]
   def change
     create_table :answers do |t|

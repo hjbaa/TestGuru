@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Миграция, создающая соединительную таблицу между пользователями и тестами, которые они проходят
 class CreateTestsUsersJoinTable < ActiveRecord::Migration[6.1]
   def change
     create_join_table :users, :tests do |t|
