@@ -2,9 +2,9 @@
 
 # Модель категории
 class Category < ApplicationRecord
-  validates :title, presence: true
+  default_scope { order(title: :asc) }
 
   has_many :tests, dependent: :nullify
 
-  scope :titles, -> { order(title: :asc) }
+  validates :title, presence: true
 end

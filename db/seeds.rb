@@ -24,6 +24,8 @@ questions = Question.create!([{ title: 'Which method allows you to lowercase a s
                               { title: 'How to create model in rails?', test: tests[1] }])
 
 Answer.create!([{ content: 'd_case()', question: questions[0] },
+                { content: 'lowercase()', question: questions[0] },
+                { content: 'l_case()', question: questions[0] },
                 { content: 'downcase()', correct: true, question: questions[0] },
                 { content: 'rails model g', question: questions[1] },
                 { content: 'rails g model', question: questions[1], correct: true }])
