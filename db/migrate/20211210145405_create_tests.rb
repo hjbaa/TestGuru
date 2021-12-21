@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# Миграция, создающая модель тестов
 class CreateTests < ActiveRecord::Migration[6.1]
   def change
     create_table :tests do |t|

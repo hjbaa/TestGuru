@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# Модель пользователя
 class User < ApplicationRecord
   has_many :created_tests, class_name: 'Test', foreign_key: 'author_id', dependent: :destroy
   has_many :tests_users, dependent: :delete_all

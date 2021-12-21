@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# Модель вопроса
 class Question < ApplicationRecord
   belongs_to :test
 
