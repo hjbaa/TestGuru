@@ -20,8 +20,8 @@ tests = Test.create!([{ title: 'Rails', author: users[1], level: 1, category: ca
                       { title: 'Ruby', author: users[0], category: categories[3] },
                       { title: 'C++', author: users[1], level: 3, category: categories[3] }])
 
-questions = Question.create!([{ title: 'Which method allows you to lowercase a string?', test: tests[0] },
-                              { title: 'How to create model in rails?', test: tests[1] }])
+questions = Question.create!([{ title: 'Which method allows you to lowercase a string?', test: tests[4] },
+                              { title: 'How to create model in rails?', test: tests[0] }])
 
 Answer.create!([{ content: 'd_case()', question: questions[0] },
                 { content: 'lowercase()', question: questions[0] },

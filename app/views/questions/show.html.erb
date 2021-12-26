@@ -1,0 +1,14 @@
+
+<h1>Title: <%= @question.title %></h1>
+
+
+<p> Answers for this question: </p>
+
+<ul>
+  <% @question.answers.each do |ans| %>
+    <li> <%= ans.content%> </li>
+  <% end %>
+</ul>
+
+
+<%= link_to 'Back', test_questions_path(test_id: @question.test_id) %>
