@@ -11,7 +11,7 @@ class QuestionsController < ApplicationController
     if @question.save
       redirect_to test_questions_path, notice: 'Question was created!'
     else
-      render plain: "Question wasn't created! #{@question.errors.messages}, title: #{@question.title}", status: :unprocessable_entity
+      render plain: "Question wasn't created! Errors: #{@question.errors.messages}", status: :unprocessable_entity
     end
   end
 
