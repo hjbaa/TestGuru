@@ -1,15 +1,20 @@
 <h1>All Questions for test #<%=params[:test_id] %></h1>
 
 <table>
-  <% @questions.each do |question| %>
-    <tr>
-      <td><%= question.title %></td>
-      <td><%= link_to 'Show', question %></td>
-      <td><%= link_to 'Edit', edit_question_path(question) %></td>
-      <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
+  <thead>
+  <tr>
+    <th>#</th>
+    <th>Title</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <%= render @questions %>
+  </tbody>
 </table>
-  <br/><br/><br/>
+
+<br/><br/>
 
 <%= link_to 'Create new question for this test', new_test_question_path %>
