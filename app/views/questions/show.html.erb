@@ -1,14 +1,21 @@
+<h1><%= @question.title %></h1>
 
-<h1>Title: <%= @question.title %></h1>
+<% if @question.answers.any? %>
+  <h3 class="mb-3">Answers</h3>
+<% end %>
 
-<p> Answers for this question: </p>
-<!--Здесь не получится сделать также, как в index, ибо у нас еще нет контроллера, отвечающего за ответы.
-Поэтому здесь использован each-->
-<ul>
-  <% @question.answers.each do |ans| %>
-    <li> <%= ans.content%> </li>
-  <% end %>
-</ul>
+<%= link_to 'New answer',root_path, class: 'btn btn-primary btn-md mb-2' %>
 
+<% if @question.answers.any? %>
+  <ul>
+    <% @question.answers.each do |ans| %>
+      <li> <%= ans.content %> </li>
+    <% end %>
+  </ul>
+<% else %>
+  <div class="alert alert-danger" role="alert">
+    There are no answers for this question yet!
+  </div>
+<% end %>
 
-<%= link_to 'Back', test_questions_path(test_id: @question.test_id) %>
+<%= link_to 'Back', @question.test , class: 'btn btn-primary btn-md mb-4' %>

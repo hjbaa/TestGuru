@@ -12,7 +12,7 @@ class QuestionsController < ApplicationController
     if @question.save
       redirect_to @question, notice: 'Question was created!'
     else
-      render plain: "Question wasn't created! Errors: #{@question.errors.messages}", status: :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -28,14 +28,13 @@ class QuestionsController < ApplicationController
     if @question.update(question_params)
       redirect_to @question, notice: 'Question was updated!'
     else
-      render plain: 'Test was not updated!', status: :unprocessable_entity
+      render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
     @question.destroy
-    redirect_to test_questions_path(@question.test), notice: 'Question was destroyed!'
-    # просто redirect_to @question.test редиректит на метод show контроллера test и в его соответсвующую форму
+    redirect_to @question.test, notice: 'Question was destroyed!'
   end
 
   private
@@ -53,6 +52,6 @@ class QuestionsController < ApplicationController
   end
 
   def rescue_with_question_not_found
-    render plain: 'Вопрос не был найден!'
+    render plain: 'Question was not found!'
   end
 end

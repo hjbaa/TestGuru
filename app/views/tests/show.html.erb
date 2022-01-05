@@ -1,0 +1,17 @@
+<h1 class="mb-4">Test: <%= @test.title %></h1>
+
+<% if @test.questions.any? %>
+  <h3 class="mb-3">Questions</h3>
+<% end %>
+
+<%= link_to 'New question', new_test_question_path(@test), class: 'btn btn-primary btn-md mb-2' %>
+
+<% if @test.questions.any? %>
+  <%= render @test.questions %>
+<% else %>
+  <div class="alert alert-danger" role="alert">
+    There are no questions for this test yet!
+  </div>
+<% end %>
+
+<%= link_to 'Back', tests_path, class: 'btn btn-primary btn-md mb-4' %>
