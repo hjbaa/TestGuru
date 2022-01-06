@@ -27,8 +27,7 @@
     </div>
 
     <div class="col-sm-10">
-      <%= f.select :category_id, [Category.all.pluck(:title), Category.all.pluck(:id)], {},
-                   class: 'form-select form-select-md' %>
+      <%= f.select :category_id, Category.all.pluck(:title, :id), {}, class: 'form-select form-select-md' %>
     </div>
   </div>
 
@@ -36,13 +35,12 @@
     <div class="col-sm-2 col-form-label">
       <%= f.label :author_id %>
     </div>
-<!--Здесь необходимо, чтобы автор теста указывался автоматически. Но это можно будет сделать только после добавления
-    идентификации, поэтому на данный момент можно выбирать создателя-->
+
     <div class="col-sm-10">
-      <%= f.select :author_id, [User.all.pluck(:login), User.all.pluck(:id)], {}, class: 'form-select form-select-md' %>
+      <%= f.select :author_id, User.all.pluck(:login, :id), {}, class: 'form-select form-select-md' %>
     </div>
   </div>
 
 
-  <%= f.submit "Submit", class: 'btn btn-primary btn-md mb-4' %>
+  <%= f.submit "Submit", class: 'btn btn-outline-primary btn-md mb-4' %>
 <% end %>
