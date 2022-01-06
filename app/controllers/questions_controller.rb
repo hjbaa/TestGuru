@@ -5,10 +5,6 @@ class QuestionsController < ApplicationController
   before_action :find_question, only: %i[show edit update destroy]
   before_action :find_test, only: %i[new create]
 
-  def index
-    @questions = Question.where(test_id: params[:test_id])
-  end
-
   def create
     @question = @test.questions.new(question_params)
     if @question.save

@@ -27,7 +27,7 @@
     </div>
 
     <div class="col-sm-10">
-      <%= f.select :category_id, Category.all.map { |category| [category.title, category.id]}, {},
+      <%= f.select :category_id, [Category.all.pluck(:title), Category.all.pluck(:id)], {},
                    class: 'form-select form-select-md' %>
     </div>
   </div>
@@ -39,7 +39,7 @@
 <!--Здесь необходимо, чтобы автор теста указывался автоматически. Но это можно будет сделать только после добавления
     идентификации, поэтому на данный момент можно выбирать создателя-->
     <div class="col-sm-10">
-      <%= f.select :author_id, User.all.map { |usr| [usr.login, usr.id] }, {}, class: 'form-select form-select-md' %>
+      <%= f.select :author_id, [User.all.pluck(:login), User.all.pluck(:id)], {}, class: 'form-select form-select-md' %>
     </div>
   </div>
 

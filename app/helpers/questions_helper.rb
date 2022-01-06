@@ -1,11 +1,7 @@
 # frozen_string_literal: true
 
 module QuestionsHelper
-  def question_header(test, method = nil)
-    if method
-      "Create new #{test.title} question"
-    else
-      "Edit #{test.title} question"
-    end
+  def question_header(question, test_title)
+    question.new_record? ? "Create new #{test_title} question" : "Edit #{test_title} question"
   end
 end

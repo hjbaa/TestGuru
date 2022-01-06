@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class TestsController < ApplicationController
-  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
   before_action :find_test, only: %i[show edit update destroy]
 
   def index
@@ -46,9 +45,5 @@ class TestsController < ApplicationController
 
   def find_test
     @test = Test.find(params[:id])
-  end
-
-  def rescue_with_test_not_found
-    render plain: 'Test was not found!'
   end
 end
