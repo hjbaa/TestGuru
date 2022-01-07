@@ -87,7 +87,7 @@ GEM
     minitest (5.15.0)
     msgpack (1.4.2)
     nio4r (2.5.8)
-    nokogiri (1.12.5-x64-mingw32)
+    nokogiri (1.13.0-x64-mingw32)
       racc (~> 1.4)
     puma (5.5.2)
       nio4r (~> 2.0)
@@ -95,7 +95,7 @@ GEM
     rack (2.2.3)
     rack-mini-profiler (2.3.3)
       rack (>= 1.2.0)
-    rack-proxy (0.7.0)
+    rack-proxy (0.7.2)
       rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)

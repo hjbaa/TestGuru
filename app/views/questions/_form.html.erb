@@ -1,3 +1,5 @@
+<h2><%= question_header(@question) %></h2>
+
 <%= render 'shared/errors', object: @question %>
 
 <%= form_with model: [@test, @question] do |f| %>
