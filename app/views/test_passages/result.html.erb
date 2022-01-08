@@ -1,14 +1,14 @@
 <% if @test_passage.success? %>
   <div class="alert alert-success">
-    <p>You <strong>passed</strong> the test!</p><br/>
+    <p>You <strong>passed</strong> the test!</p>
 <% else %>
 <!--  Прочитал про content_tag, но для подобного большого блока, я считаю, лучше его не использовать, ибо будет
       нагромождение кода в хелпере. -->
   <div class="alert alert-danger">
-    <p>You <strong>did not passed </strong> the test!</p><br/>
+    <p>You <strong>did not passed </strong> the test!</p>
 <% end %>
 
-    <p>Your result: <strong><%= @test_passage.correct_questions %> of <%= @test_passage.test.questions.count %></strong>
+    <p>You scored <strong><%= @test_passage.correct_questions %> of <%= @test_passage.test.questions.count %></strong>
     correct answers!</p>
 
     <div class="progress">

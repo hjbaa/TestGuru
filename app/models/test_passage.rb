@@ -8,8 +8,10 @@ class TestPassage < ApplicationRecord
   before_validation :set_first_question, on: :create
   before_update :set_next_question
 
+  PASSAGE_THRESHOLD = 85
+
   def success?
-    correct_percentage > 85
+    correct_percentage > PASSAGE_THRESHOLD
   end
 
   def correct_percentage
