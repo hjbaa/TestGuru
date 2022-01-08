@@ -5,7 +5,7 @@
 </h3>
 
 <div class="mb-2">
-  <p class="fst-italic"> Current question: <%= current_question_number(@test_passage) %> of
+  <p class="fst-italic"> Current question: <%= @test_passage.current_question_number %> of
     <%= @test_passage.test.questions.count %></p>
 </div>
 
