@@ -2,8 +2,6 @@
   <div class="alert alert-success">
     <p>You <strong>passed</strong> the test!</p>
 <% else %>
-<!--  Прочитал про content_tag, но для подобного большого блока, я считаю, лучше его не использовать, ибо будет
-      нагромождение кода в хелпере. -->
   <div class="alert alert-danger">
     <p>You <strong>did not passed </strong> the test!</p>
 <% end %>
@@ -20,11 +18,6 @@
 
   </div>
   </div>
-<!--  Два div, потому что ide ругается на то, что один из блоков не закрыт. Не уверен, можно ли так вообще, чтобы
-      div открывался внутри if-else-end, а закрывался вне. Сделал так из-за того, что результат и progress-bar
-      абсолютно одинаков в обоих случаях и (по идее) должен идти внутри блока с классом alert. Проверил, страница
-      отображается нормально, дополнительный закрывающий div не идет в код страницы.-->
-
 
 <div class="btn-group btn-group-md mb-4" role="group">
   <%= link_to 'Try again', start_test_path(@test_passage.test), class: 'btn btn-outline-success', data: {method: :post} %>
