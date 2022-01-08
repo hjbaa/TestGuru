@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module TestPassagesHelper
   def correct_percentage(test_passage)
     (test_passage.correct_questions.to_f / test_passage.test.questions.count * 100).round
