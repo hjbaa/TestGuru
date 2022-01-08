@@ -1,0 +1,17 @@
+<% if correct_percentage(@test_passage) >= 85 %>
+  <div class="alert alert-success">
+    <p>You <strong>passed</strong> the test!</p><br/>
+    <p>Your result: <%= correct_percentage(@test_passage) %>% correct answers.</p>
+
+  </div>
+<% else %>
+  <div class="alert alert-danger">
+    <p>You <strong>did not passed </strong> the test!</p><br/>
+    <p>Your result: <strong><%= correct_percentage(@test_passage) %>% </strong> correct answers.</p>
+  </div>
+<% end %>
+
+<div class="btn-group btn-group-md mb-4" role="group">
+  <%= link_to 'Try again', start_test_path(@test_passage.test), class: 'btn btn-outline-success', data: {method: :post} %>
+  <%= link_to 'Back to tests', tests_path, class: 'btn btn-outline-primary' %>
+</div>

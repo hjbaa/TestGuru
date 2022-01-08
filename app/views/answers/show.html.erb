@@ -1,0 +1,7 @@
+<h1 class="mb-4"><%= @answer.content %></h1>
+
+<%= link_to 'Edit', edit_answer_path(@answer), class: 'btn btn-outline-secondary mb-4' %>
+
+<h3 class="mb-4">Correct: <%= @answer.correct %></h3>
+
+<%= link_to 'Back', @answer.question , class: 'btn btn-outline-primary btn-md mb-4' %>

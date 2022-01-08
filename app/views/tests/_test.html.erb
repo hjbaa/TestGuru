@@ -16,6 +16,7 @@
       <%= link_to 'Edit', edit_test_path(test), class: 'btn btn-outline-secondary' %>
       <%= link_to 'Destroy', test_path(test), class: 'btn btn-outline-danger',
                   data: {method: :delete, confirm: 'Are you sure?'} %>
+      <%= link_to 'Start test', start_test_path(test), class: 'btn btn-outline-success', data: {method: :post}%>
     </div>
   </div>
 </article>
