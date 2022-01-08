@@ -1,15 +1,28 @@
-<% if correct_percentage(@test_passage) >= 85 %>
+<% if @test_passage.success? %>
   <div class="alert alert-success">
     <p>You <strong>passed</strong> the test!</p><br/>
-    <p>Your result: <%= correct_percentage(@test_passage) %>% correct answers.</p>
-
-  </div>
 <% else %>
+<!--  Прочитал про content_tag, но для подобного большого блока, я считаю, лучше его не использовать, ибо будет
+      нагромождение кода в хелпере. -->
   <div class="alert alert-danger">
     <p>You <strong>did not passed </strong> the test!</p><br/>
-    <p>Your result: <strong><%= correct_percentage(@test_passage) %>% </strong> correct answers.</p>
-  </div>
 <% end %>
+
+    <p>Your result: <strong><%= @test_passage.correct_percentage %>% </strong> correct answers.</p>
+    <div class="progress">
+      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+           style="width: <%=@test_passage.correct_percentage %>%" aria-valuenow="<%=@test_passage.correct_percentage %>"
+           aria-valuemin="0" aria-valuemax="100"> <%= @test_passage.correct_percentage %>%
+      </div>
+    </div>
+
+  </div>
+  </div>
+<!--  Два div, потому что ide ругается на то, что один из блоков не закрыт. Не уверен, можно ли так вообще, чтобы
+      div открывался внутри if-else-end, а закрывался вне. Сделал так из-за того, что результат и progress-bar
+      абсолютно одинаков в обоих случаях. Проверил, страница отображается нормально, дополнительный закрывающий
+      div не идет в код страницы.-->
+
 
 <div class="btn-group btn-group-md mb-4" role="group">
   <%= link_to 'Try again', start_test_path(@test_passage.test), class: 'btn btn-outline-success', data: {method: :post} %>
