@@ -1,0 +1,25 @@
+<% if @test_passage.success? %>
+  <div class="alert alert-success">
+    <p>You <strong>passed</strong> the test!</p>
+<% else %>
+  <div class="alert alert-danger">
+    <p>You <strong>did not passed </strong> the test!</p>
+<% end %>
+
+    <p>You scored <strong><%= @test_passage.correct_questions %> of <%= @test_passage.test.questions.count %></strong>
+    correct answers!</p>
+
+    <div class="progress">
+      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+           style="width: <%=@test_passage.correct_percentage %>%" aria-valuenow="<%=@test_passage.correct_percentage %>"
+           aria-valuemin="0" aria-valuemax="100"> <%= @test_passage.correct_percentage %>%
+      </div>
+    </div>
+
+  </div>
+  </div>
+
+<div class="btn-group btn-group-md mb-4" role="group">
+  <%= link_to 'Try again', start_test_path(@test_passage.test), class: 'btn btn-outline-success', data: {method: :post} %>
+  <%= link_to 'Back to tests', tests_path, class: 'btn btn-outline-primary' %>
+</div>

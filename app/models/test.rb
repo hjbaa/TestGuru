@@ -5,8 +5,8 @@ class Test < ApplicationRecord
   belongs_to :author, class_name: 'User'
 
   has_many :questions, dependent: :destroy
-  has_many :tests_users, dependent: :delete_all
-  has_many :users, through: :tests_users
+  has_many :test_passages, dependent: :delete_all
+  has_many :users, through: :test_passages
 
   validates :level, numericality: { greater_than_or_equal_to: 0, only_integer: true }
   validates :title, presence: true, uniqueness: {

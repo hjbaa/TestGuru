@@ -1,0 +1,26 @@
+<h1> Passing the <%= @test_passage.test.title %> Test </h1>
+
+<h3>
+  <%= @test_passage.current_question.title %>
+</h3>
+
+<div class="mb-2">
+  <p class="fst-italic"> Current question: <%= @test_passage.current_question_number %> of
+    <%= @test_passage.test.questions.count %></p>
+</div>
+
+<%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |f| %>
+  <%= f.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :content, include_hidden: false do |b| %>
+    <div class="mb-3 row justify-content-center align-items-center">
+      <div class="col-sm-1">
+        <%= b.check_box id: "answer_ids_#{b.object.id}", class: 'form-check-input' %>
+      </div>
+
+      <div class="col-sm-11 col-form-label fw-bold ">
+        <%= b.label %>
+      </div>
+    </div>
+  <% end %>
+
+  <p><%= f.submit 'Next', class: 'btn btn-outline-primary btn-md mb-4' %></p>
+<% end %>
