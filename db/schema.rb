@@ -11,7 +11,7 @@
 # migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
-
+# rubocop:disable Metrics/BlockLength
 ActiveRecord::Schema.define(version: 20_220_108_003_946) do
   create_table 'answers', force: :cascade do |t|
     t.boolean 'correct', default: false, null: false
@@ -75,3 +75,4 @@ ActiveRecord::Schema.define(version: 20_220_108_003_946) do
   add_foreign_key 'tests', 'categories'
   add_foreign_key 'tests', 'users', column: 'author_id'
 end
+# rubocop:enable Metrics/BlockLength
