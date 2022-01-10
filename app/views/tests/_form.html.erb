@@ -31,15 +31,5 @@
     </div>
   </div>
 
-  <div class="mb-3 row">
-    <div class="col-sm-2 col-form-label">
-      <%= f.label :author_id %>
-    </div>
-
-    <div class="col-sm-10">
-      <%= f.select :author_id, User.pluck(:login, :id), {}, class: 'form-select form-select-md' %>
-    </div>
-  </div>
-
   <%= f.submit "Submit", class: 'btn btn-outline-primary btn-md mb-4' %>
 <% end %>

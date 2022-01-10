@@ -12,9 +12,10 @@ class TestsController < ApplicationController
   end
 
   def create
-    @test = Test.new(test_params)
+    @test = current_user.created_tests.new(test_params)
     if @test.save
-      redirect_to @test, notice: 'Test was created!'
+      flash[:success] = 'Test was created!'
+      redirect_to @test
     else
       render :new, status: :unprocessable_entity
     end
@@ -26,7 +27,8 @@ class TestsController < ApplicationController
 
   def update
     if @test.update(test_params)
-      redirect_to @test, notice: 'Test was updated!'
+      flash[:success] = 'Test was updated!'
+      redirect_to @test
     else
       render :edit, status: :unprocessable_entity
     end
@@ -34,11 +36,12 @@ class TestsController < ApplicationController
 
   def destroy
     @test.destroy
-    redirect_to tests_path, notice: 'Test was destroyed!'
+    flash[:success] = 'Test was destroyed!'
+    redirect_to tests_path
   end
 
   def start
-    @user = User.first
+    @user = current_user
     @user.tests.push(@test)
     redirect_to @user.test_passage(@test)
   end
@@ -46,7 +49,7 @@ class TestsController < ApplicationController
   private
 
   def test_params
-    params.require(:test).permit(:title, :level, :author_id, :category_id)
+    params.require(:test).permit(:title, :level, :category_id)
   end
 
   def find_test

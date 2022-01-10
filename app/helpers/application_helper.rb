@@ -8,4 +8,8 @@ module ApplicationHelper
   def current_year
     Time.current.year
   end
+
+  def flash_helper(name, msg)
+    content_tag :div, msg, class: "alert alert-#{name}", role: 'alert'
+  end
 end

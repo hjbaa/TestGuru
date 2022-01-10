@@ -2,6 +2,12 @@
 
 Rails.application.routes.draw do
   root 'tests#index'
+
+  get '/login', to: 'sessions#new'
+
+  resources :users, only: %i[new create edit update show]
+  resource :session, only: %i[create destroy]
+
   resources :tests do
     resources :questions, except: :index, shallow: true do
       resources :answers, except: :index, shallow: true

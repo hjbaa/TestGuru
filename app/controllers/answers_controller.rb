@@ -16,7 +16,8 @@ class AnswersController < ApplicationController
     @answer = @question.answers.new(answer_params)
 
     if @answer.save
-      redirect_to @answer.question, notice: 'Answer was created!'
+      flash[:success] = 'Answer was created!'
+      redirect_to @answer.question
     else
       render :new
     end
@@ -24,7 +25,8 @@ class AnswersController < ApplicationController
 
   def update
     if @answer.update(answer_params)
-      redirect_to @answer.question, notice: 'Answer was created!'
+      flash[:success] = 'Answer was updated!'
+      redirect_to @answer.question
     else
       render :edit
     end
@@ -32,7 +34,8 @@ class AnswersController < ApplicationController
 
   def destroy
     @answer.destroy
-    redirect_to @answer.question, notice: 'Answer was destroyed!'
+    flash[:success] = 'Answer was destroyed!'
+    redirect_to @answer.question
   end
 
   private

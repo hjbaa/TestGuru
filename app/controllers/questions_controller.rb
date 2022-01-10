@@ -8,7 +8,8 @@ class QuestionsController < ApplicationController
   def create
     @question = @test.questions.new(question_params)
     if @question.save
-      redirect_to @question, notice: 'Question was created!'
+      flash[:success] = 'Question was created!'
+      redirect_to @question
     else
       render :new, status: :unprocessable_entity
     end
@@ -24,7 +25,8 @@ class QuestionsController < ApplicationController
 
   def update
     if @question.update(question_params)
-      redirect_to @question, notice: 'Question was updated!'
+      flash[:success] = 'Question was updated!'
+      redirect_to @question
     else
       render :edit, status: :unprocessable_entity
     end
@@ -32,7 +34,8 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-    redirect_to @question.test, notice: 'Question was destroyed!'
+    flash[:success] = 'Question was destroyed!'
+    redirect_to @question.test
   end
 
   private
@@ -50,6 +53,7 @@ class QuestionsController < ApplicationController
   end
 
   def rescue_with_question_not_found
-    render plain: 'Question was not found!'
+    flash[:warning] = 'Question was not found!'
+    redirect_to root_path
   end
 end
