@@ -8,7 +8,7 @@ class TestsController < ApplicationController
   end
 
   def new
-    @test = Test.new
+    @test = current_user.created_tests.new
   end
 
   def create
