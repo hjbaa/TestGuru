@@ -13,13 +13,8 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       flash[:success] = "Welcome back, #{user.login}"
 
-      if cookies[:requested_page].present?
-        redirect_to cookies[:requested_page]
-        cookies.delete :requested_page
-      else
-        redirect_to root_path
-      end
-
+      # cookies.delete возвращает удаленное значение requested_page, поэтому редирект работает корректно
+      redirect_to cookies.delete(:requested_page) || root_path
     else
       flash.now[:warning] = 'Incorrect email and/or password!'
       render :new
