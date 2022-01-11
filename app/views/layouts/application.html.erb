@@ -14,8 +14,8 @@
     <%= render 'shared/header' %>
 
     <main class="container mt-3">
-      <% flash.each do |name, msg| %>
-        <%= flash_helper(name, msg) %>
+      <% flash.each do |name, _| %>
+        <%= flash_helper(name) %>
       <% end %>
 
       <%= yield %>

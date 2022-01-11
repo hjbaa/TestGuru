@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   root 'tests#index'
 
   get '/login', to: 'sessions#new'
+  get '/signup', to: 'users#new'
 
-  resources :users, only: %i[new create edit update show]
+  resources :users, only: %i[create show]
   resource :session, only: %i[create destroy]
 
   resources :tests do

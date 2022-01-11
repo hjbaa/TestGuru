@@ -1,33 +1,27 @@
 # frozen_string_literal: true
 
 class SessionsController < ApplicationController
-  before_action :require_no_authentication, only: %i[new create]
-  before_action :require_authentication, only: :destroy
+  skip_before_action :authenticate_user!, only: %i[new create]
 
   def new; end
 
+  # rubocop:disable Metrics/AbcSize
   def create
     user = User.find_by(email: params[:email])
+
     if user&.authenticate(params[:password])
-      do_sign_in(user)
+      session[:user_id] = user.id
+      flash[:success] = "Welcome back, #{user.login}"
+      redirect_to cookies[:requested_page]
     else
       flash.now[:warning] = 'Incorrect email and/or password!'
       render :new
     end
   end
+  # rubocop:enable Metrics/AbcSize
 
   def destroy
-    sign_out
-    flash[:success] = 'Successfully logged out!'
+    session.destroy
     redirect_to root_path
-  end
-
-  private
-
-  def do_sign_in(user)
-    sign_in user
-    remember(user) if params[:remember_me] == '1'
-    flash[:success] = "Welcome back, #{current_user.login}!"
-    redirect_to cookies[:page]
   end
 end
