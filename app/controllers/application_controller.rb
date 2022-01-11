@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
     return if logged_in?
 
     cookies[:requested_page] = request.path
-    flash[:warning] = 'You are not signed in!'
+    flash[:danger] = 'You are not signed in!'
     redirect_to signup_path
   end
 

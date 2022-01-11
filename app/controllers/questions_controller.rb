@@ -53,7 +53,7 @@ class QuestionsController < ApplicationController
   end
 
   def rescue_with_question_not_found
-    flash[:warning] = 'Question was not found!'
+    flash[:danger] = 'Question was not found!'
     redirect_to root_path
   end
 end
