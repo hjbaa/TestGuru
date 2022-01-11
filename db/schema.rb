@@ -11,8 +11,8 @@
 # migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
-# rubocop:disable Metrics/BlockLength
-ActiveRecord::Schema.define(version: 20_220_108_003_946) do
+
+ActiveRecord::Schema.define(version: 20_220_109_095_522) do
   create_table 'answers', force: :cascade do |t|
     t.boolean 'correct', default: false, null: false
     t.string 'content', null: false
@@ -61,10 +61,12 @@ ActiveRecord::Schema.define(version: 20_220_108_003_946) do
 
   create_table 'users', force: :cascade do |t|
     t.string 'login', null: false
-    t.string 'password', null: false
+    t.string 'password_digest', null: false
     t.string 'email', null: false
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
+    t.index ['email'], name: 'unique_emails', unique: true
+    t.index ['login'], name: 'unique_logins', unique: true
   end
 
   add_foreign_key 'answers', 'questions'
@@ -75,4 +77,3 @@ ActiveRecord::Schema.define(version: 20_220_108_003_946) do
   add_foreign_key 'tests', 'categories'
   add_foreign_key 'tests', 'users', column: 'author_id'
 end
-# rubocop:enable Metrics/BlockLength

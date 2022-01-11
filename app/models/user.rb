@@ -5,7 +5,10 @@ class User < ApplicationRecord
   has_many :test_passages, dependent: :delete_all
   has_many :tests, through: :test_passages
 
-  validates :email, :login, :password, presence: true
+  has_secure_password
+
+  validates :email, presence: true, uniqueness: true, format: URI::MailTo::EMAIL_REGEXP
+  validates :login, presence: true, uniqueness: true
 
   def passed_tests(tests_level)
     tests.where(level: tests_level)

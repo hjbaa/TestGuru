@@ -1,0 +1,8 @@
+<% if @tests.blank? %>
+  <h1 class="mb-4"> You have not created tests yet!</h1>
+  <%= link_to 'Create test', new_test_path, class: 'btn btn-outline-primary mb-4' %>
+
+<% else %>
+  <h1 class="mb-4">Your created tests:</h1>
+  <%= render @tests %>
+<% end %>
