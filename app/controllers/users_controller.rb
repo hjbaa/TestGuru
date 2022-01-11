@@ -2,7 +2,6 @@
 
 class UsersController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[new create]
-  before_action :set_user, only: :show
 
   def show
     @tests = current_user.created_tests
@@ -23,10 +22,6 @@ class UsersController < ApplicationController
   end
 
   private
-
-  def set_user
-    @user = current_user
-  end
 
   def user_params
     params.require(:user).permit(:email, :login, :password, :password_confirmation)
