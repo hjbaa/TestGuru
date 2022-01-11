@@ -9,7 +9,9 @@ module ApplicationHelper
     Time.current.year
   end
 
-  def flash_helper(name)
-    content_tag :div, flash[name], class: "alert alert-#{name}", role: 'alert'
+  def flash_helper
+    flash.map do |name, msg|
+      content_tag :div, msg, class: "alert alert-#{name}", role: 'alert'
+    end.join.html_safe
   end
 end
