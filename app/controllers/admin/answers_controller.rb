@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class AnswersController < ApplicationController
+class Admin::AnswersController < BaseController
   before_action :set_answer, only: %i[show edit update destroy]
   before_action :find_question, only: %i[new create]
 
@@ -17,7 +17,7 @@ class AnswersController < ApplicationController
 
     if @answer.save
       flash[:success] = 'Answer was created!'
-      redirect_to @answer.question
+      redirect_to admin_question_path(@answer.question)
     else
       render :new
     end
@@ -26,7 +26,7 @@ class AnswersController < ApplicationController
   def update
     if @answer.update(answer_params)
       flash[:success] = 'Answer was updated!'
-      redirect_to @answer.question
+      redirect_to admin_question_path(@answer.question)
     else
       render :edit
     end
@@ -35,7 +35,7 @@ class AnswersController < ApplicationController
   def destroy
     @answer.destroy
     flash[:success] = 'Answer was destroyed!'
-    redirect_to @answer.question
+    redirect_to admin_question_path(@answer.question)
   end
 
   private

@@ -1,22 +1,13 @@
-<article class="card mt-3 mb-4">
+<div class="card text-black bg-light m-1 mb-4 d-inline-block" style="max-width: 20rem;">
+  <div class="card-header"> <%= test.category.title %> </div>
   <div class="card-body">
-    <h4><%= test.title %></h4>
+    <h4 class="card-title"><%= test.title %></h4>
+    <p class="card-text">Level: <%= test.level %></p>
+    <p class="card-text">Number of questions: <%= test.questions.count %></p>
+    <p class="card-text">Author: <%= test.author.name %></p>
 
-    <section class="card-text">
+    <%= link_to 'Start test', start_test_path(test), class: 'btn btn-outline-success btn-md', data: {method: :post}%>
 
-      <small>Number of questions: <%= test.questions.count %></small><br/>
-      <small>Category: <%= test.category.title %></small>
-      <p class="my-2">
-        level: <%= test.level %>
-      </p>
-    </section>
 
-    <div class="btn-group btn-group-md" role="group">
-      <%= link_to 'Show', test_path(test), class: 'btn btn-outline-primary' %>
-      <%= link_to 'Edit', edit_test_path(test), class: 'btn btn-outline-secondary' %>
-      <%= link_to 'Destroy', test_path(test), class: 'btn btn-outline-danger',
-                  data: {method: :delete, confirm: 'Are you sure?'} %>
-      <%= link_to 'Start test', start_test_path(test), class: 'btn btn-outline-success', data: {method: :post}%>
-    </div>
   </div>
-</article>
+</div>

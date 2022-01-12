@@ -1,4 +1,8 @@
 Style/Documentation:
   Enabled: false
+
 Metrics/MethodLength:
-  Max: 15
+  Max: 27
+
+Style/ClassAndModuleChildren:
+  Enabled: false

@@ -1,6 +1,6 @@
 <h1 class="mb-4"><%= @answer.content %></h1>
 
-<%= link_to 'Edit', edit_answer_path(@answer), class: 'btn btn-outline-secondary mb-4' %>
+<%= link_to 'Edit', edit_admin_answer_path(@answer), class: 'btn btn-outline-secondary mb-4' %>
 
 <% if @answer.correct %>
   <h3 class="mb-4">Correct: <span class="text-success"><%= @answer.correct %></span></h3>
@@ -8,4 +8,4 @@
   <h3 class="mb-4">Correct: <span class="text-danger"><%= @answer.correct %></span></h3>
 <% end %>
 
-<%= link_to 'Back', @answer.question , class: 'btn btn-outline-primary btn-md mb-4' %>
+<%= link_to 'Back', admin_question_path(@answer.question), class: 'btn btn-outline-primary btn-md mb-4' %>
