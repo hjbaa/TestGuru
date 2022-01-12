@@ -4,7 +4,7 @@
   <h3 class="mb-3">Answers</h3>
 <% end %>
 
-<%= link_to 'New answer', new_question_answer_path(@question), class: 'btn btn-outline-primary btn-md mb-2' %>
+<%= link_to 'New answer', new_admin_question_answer_path(@question), class: 'btn btn-outline-primary btn-md mb-2' %>
 
 <% if @question.answers.any? %>
   <%= render @question.answers %>
@@ -14,4 +14,4 @@
   </div>
 <% end %>
 
-<%= link_to 'Back', @question.test , class: 'btn btn-outline-primary btn-md mb-4' %>
+<%= link_to 'Back', admin_test_path(@question.test) , class: 'btn btn-outline-primary btn-md mb-4' %>

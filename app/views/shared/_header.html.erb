@@ -1,39 +1,40 @@
-<header class="p-3 bg-dark text-white">
-  <div class="container">
-    <nav class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+<div class="container">
+  <nav class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
 
-      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-        <li><%= link_to 'TestGuru', root_path, class: 'nav-link px-2 text-white' %></li>
-      </ul>
+    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+      <li><%= link_to 'TestGuru', root_path, class: 'nav-link px-2 text-white' %></li>
+      <% if current_user.is_a?(Admin) %>
+        <li><%= link_to 'Admin panel', admin_tests_path, class: 'nav-link px-2 text-white'  %></li>
+      <% end %>
+    </ul>
 
-      <ul class="nav col-12 col-lg-auto mb-2 mb-md-0">
-        <% if logged_in? %>
-          <li class="dropdown">
-            <%= link_to '#', class: 'nav-link px-2 dropdown-toggle text-white', data: {"bs-toggle": 'dropdown'} do %>
-              <%= current_user.login %>
-            <% end %>
+    <ul class="nav col-12 col-lg-auto mb-2 mb-md-0">
+      <% if user_signed_in? %>
+        <li class="dropdown">
+          <%= link_to '#', class: 'nav-link px-2 dropdown-toggle text-white', data: {"bs-toggle": 'dropdown'} do %>
+            <%= current_user.name %>
+          <% end %>
 
-            <ul class="dropdown-menu">
-              <li>
-                <%= link_to 'Edit profile', root_path, class: 'dropdown-item' %>
-              </li>
-              <li>
-                <%= link_to 'Show profile', user_path(current_user), class: 'dropdown-item' %>
-              </li>
+          <ul class="dropdown-menu">
+            <li>
+              <%= link_to 'Edit profile', root_path, class: 'dropdown-item' %>
+            </li>
+            <li>
+              <%= link_to 'Show profile', root_path, class: 'dropdown-item' %>
+            </li>
 
-              <li><hr class="dropdown-divider"></li>
+            <li><hr class="dropdown-divider"></li>
 
-              <li>
-                <%= link_to 'Log out', session_path, class: 'dropdown-item', data: {method: :delete} %>
-              </li>
-            </ul>
-          </li>
-        <% else %>
-          <li><%= link_to 'Sign Up', signup_path, class: 'nav-link px-2 text-white' %></li>
-          <li><%= link_to 'Log In', login_path, class: 'nav-link px-2 text-white'%></li>
-        <% end %>
-      </ul>
+            <li>
+              <%= link_to 'Log out', destroy_user_session_path, class: 'dropdown-item', data: {method: :delete}%>
+            </li>
+          </ul>
+        </li>
+      <% else %>
+        <li><%= link_to 'Sign Up', new_user_registration_path, class: 'nav-link px-2 text-white' %></li>
+        <li><%= link_to 'Log In', new_user_session_path, class: 'nav-link px-2 text-white'%></li>
+      <% end %>
+    </ul>
 
-    </nav>
-  </div>
-</header>
+  </nav>
+</div>

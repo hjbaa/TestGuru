@@ -7,8 +7,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-users = User.create!([{ login: 'hjbaa', password: 'abc-def', email: 'abcdef@gmail.com' },
-                      { login: 'layvblessn', password: 'qwerty', email: 'abcd@gmail.com' }])
+users = User.create!([{ password: '12345678', email: 'egor.skandakov@gmail.com' },
+                      { password: 'qwerty', email: 'abcd@gmail.com' }])
 
 categories = Category.create!([{ title: 'Backend' }, { title: 'Frontend' }, { title: 'Machine Learning' },
                                { title: 'Programming Language' }, { title: 'DevOps' }])
@@ -29,9 +29,3 @@ Answer.create!([{ content: 'd_case()', question: questions[0] },
                 { content: 'downcase()', correct: true, question: questions[0] },
                 { content: 'rails model g', question: questions[1] },
                 { content: 'rails g model', question: questions[1], correct: true }])
-
-tests.each do |test|
-  users[0].tests.push(test)
-end
-
-users[1].tests.push(tests[0])

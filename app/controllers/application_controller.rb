@@ -1,25 +1,13 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
-  before_action :authenticate_user!
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
-  helper_method :current_user, :logged_in?
+  protected
 
-  private
-
-  def authenticate_user!
-    return if logged_in?
-
-    cookies[:requested_page] = request.path
-    flash[:danger] = 'You are not signed in!'
-    redirect_to signup_path
-  end
-
-  def current_user
-    @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
-  end
-
-  def logged_in?
-    current_user.present?
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up) do |u|
+      u.permit :name, :surname, :email, :password, :password_confirmation
+    end
   end
 end
