@@ -12,7 +12,7 @@
       <% if user_signed_in? %>
         <li class="dropdown">
           <%= link_to '#', class: 'nav-link px-2 dropdown-toggle text-white', data: {"bs-toggle": 'dropdown'} do %>
-            <%= current_user.email %>
+            <%= current_user.name %>
           <% end %>
 
           <ul class="dropdown-menu">

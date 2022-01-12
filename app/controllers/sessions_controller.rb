@@ -9,6 +9,8 @@ class SessionsController < Devise::SessionsController
   protected
 
   def after_sign_in_path_for(_resource)
-    '/admin/tests'
+    return '/admin/tests' if current_user.is_a?(Admin)
+
+    '/'
   end
 end
