@@ -6,9 +6,9 @@ class GistsController < ApplicationController
 
     result = GistQuestionService.new(@test_passage.current_question).call
 
-    if result.html_url.present?
+    if result.success?
       link = result.html_url
-      Gist.create(question: @test_passage.current_question, creator: current_user, url: link)
+      Gist.create!(question: @test_passage.current_question, creator: current_user, url: link)
 
       flash[:notice] = I18n.t('gist.create.success_html', link: link)
     else

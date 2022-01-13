@@ -1,5 +1,5 @@
 <tr>
-  <th scope="col"><%= link_to gist.question.title.first(25), admin_question_path(gist.question)%></th>
+  <th scope="col"><%= link_to gist.question.title.truncate(25), admin_question_path(gist.question)%></th>
   <th scope="col"><%= link_to "Gist ##{gist.id}", gist.url %></th>
   <th scope="col"><%= gist.creator.email %></th>
   <th scope="col"><%= gist.created_at %></th>
