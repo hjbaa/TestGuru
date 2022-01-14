@@ -1,5 +1,18 @@
-<h1 class="mb-4">Tests</h1>
 
-<div class="mb-4">
+<h1 class="mb-4 m-1">Available tests</h1>
+
+<div class="dropdown">
+  <%= link_to '#', class: 'btn btn-outline-secondary dropdown-toggle text-black m-1', data: {"bs-toggle": 'dropdown'} do %>
+    Sort
+  <% end %>
+
+  <ul class="dropdown-menu">
+    <li> <a class="dropdown-item" id='sortAsc'>A-Z</a> </li>
+    <li> <a class="dropdown-item" id='sortDesc'>Z-A</a> </li>
+  </ul>
+</div>
+
+
+<div class="mb-4" id="available-tests">
   <%= render @tests %>
 </div>

@@ -28,8 +28,11 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise', '~> 4.8'
 
 # API
-# gem 'faraday', '~> 2.0'
 gem 'octokit', '~> 4.21'
+
+# UI
+
+gem 'octicons_helper', '~> 16.2'
 
 gem 'i18n', '~> 1.8.11'
 gem 'rails-i18n', '~> 6.0.0'
