@@ -5,9 +5,9 @@
     <p class="card-text">Level: <%= test.level %></p>
     <p class="card-text">Number of questions: <%= test.questions.count %></p>
     <p class="card-text">Author: <%= test.author.name %></p>
+  </div>
 
+  <div class="card-footer">
     <%= link_to 'Start test', start_test_path(test), class: 'btn btn-outline-success btn-md', data: {method: :post}%>
-
-
   </div>
 </div>

@@ -10,6 +10,8 @@ import "channels"
 
 import '@popperjs/core'
 import 'bootstrap/js/dist/dropdown.js'
+import 'packs/utilities/sorting.js'
+import 'packs/utilities/password_coincidence.js'
 
 Rails.start()
 Turbolinks.start()

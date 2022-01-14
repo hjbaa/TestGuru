@@ -126,6 +126,11 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.13.0-x64-mingw32)
       racc (~> 1.4)
+    octicons (16.2.0)
+    octicons_helper (16.2.0)
+      actionview
+      octicons (= 16.2.0)
+      railties
     octokit (4.21.0)
       faraday (>= 0.9)
       sawyer (~> 0.8.0, >= 0.5.3)
@@ -233,6 +238,7 @@ DEPENDENCIES
   i18n (~> 1.8.11)
   jbuilder (~> 2.7)
   letter_opener (~> 1.7)
+  octicons_helper (~> 16.2)
   octokit (~> 4.21)
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
