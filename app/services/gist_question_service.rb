@@ -1,6 +1,8 @@
-GistResponse = Struct.new(:success?, :html_url)
+# frozen_string_literal: true
 
 class GistQuestionService
+  GistResponse = Struct.new(:success?, :html_url)
+
   def initialize(question, client: default_client)
     @question = question
     @test = @question.test
