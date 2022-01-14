@@ -1,2 +1,11 @@
 ru:
   hello: 'Привет мир!'
+
+  gist_question_service:
+    gist_params:
+      description: "Вопрос о %{test_title} из TestGuru."
+
+  gist:
+    create:
+      success_html: "<a href=\"%{link}\">Gist</a> был успешно создан!"
+      error: "Gist не был создан."

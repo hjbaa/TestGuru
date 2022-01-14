@@ -27,7 +27,7 @@ class TestPassage < ApplicationRecord
   end
 
   def success?
-    correct_percentage > PASSAGE_THRESHOLD
+    correct_percentage >= PASSAGE_THRESHOLD
   end
 
   private
