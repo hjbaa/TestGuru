@@ -1,15 +1,21 @@
-<div class="card text-black bg-light m-1 mb-4 d-inline-block" style="max-width: 20rem;">
+<div class="card text-black bg-light m-1 mb-4 d-inline-block" style="max-width: 18rem;">
   <div class="card-header"> <%= test.category.title %> </div>
   <div class="card-body">
-    <h4 class="card-title"><%= test.title %></h4>
+    <h4 class="card-title">
+      <%= content_tag :span, test.title, class: 'test-title', data: { test_id: test.id} %>
+      <%= render 'form_inline', test: test == @test ? @test : test %>
+    </h4>
     <p class="card-text">Level: <%= test.level %></p>
     <p class="card-text">Number of questions: <%= test.questions.count %></p>
   </div>
 
-  <div class="card-footer">
+  <div class="card-footer text-center">
     <div class="btn-group btn-group-md" role="group">
       <%= link_to 'Show', admin_test_path(test), class: 'btn btn-outline-primary' %>
-      <%= link_to 'Edit', edit_admin_test_path(test), class: 'btn btn-outline-secondary' %>
+
+      <%= link_to 'Edit', edit_admin_test_path(test), class: 'btn btn-outline-secondary form-inline-link',
+                  data: { test_id: test.id} %>
+
       <%= link_to 'Destroy', admin_test_path(test), class: 'btn btn-outline-danger',
                   data: {method: :delete, confirm: 'Are you sure?'} %>
     </div>
