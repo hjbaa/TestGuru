@@ -1,9 +1,9 @@
-<% if object.errors.full_messages.any? %>
-  <div class="alert alert-danger">
+<% if object.present? && object.errors.full_messages.any? %>
+  <%= content_tag :div, class: 'alert alert-danger', data: { object_id: object.id } do %>
     <ul class="mb-0">
       <% object.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
     </ul>
-  </div>
+  <% end %>
 <% end %>

@@ -1,0 +1,13 @@
+<%= form_with model: [:admin, test], url: update_inline_admin_test_path(test), local: true,
+              class: 'form-inline hide', data: { test_id: test.id } do |form| %>
+  <div class="mb-3 row">
+    <div class="col-sm-8">
+      <%= form.text_field :title, class: 'form-control' %>
+    </div>
+    <div class="col-sm-2">
+      <%= form.submit 'Submit', class: 'btn btn-outline-primary' %>
+    </div>
+  </div>
+
+
+<% end %>

@@ -4,7 +4,11 @@
   <h3 class="mb-3">Questions</h3>
 <% end %>
 
-<%= link_to 'New question', new_admin_test_question_path(@test), class: 'btn btn-outline-primary btn-md mb-2' %>
+<div class="btn-group btn-group-md mb-2" role="group">
+  <%= link_to 'New question', new_admin_test_question_path(@test), class: 'btn btn-outline-primary' %>
+  <%= link_to 'Edit test', edit_admin_test_path(@test), class: 'btn btn-outline-secondary' %>
+</div>
+
 
 <div class="mb-4">
   <% if @test.questions.any? %>
