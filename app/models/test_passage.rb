@@ -18,6 +18,10 @@ class TestPassage < ApplicationRecord
     current_question.nil?
   end
 
+  def expired?
+    created_at + test.seconds_for_passage.seconds < Time.current
+  end
+
   def correct_percentage
     (correct_questions.to_f / test.questions.count * 100).round
   end

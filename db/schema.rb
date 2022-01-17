@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_220_112_153_138) do
+ActiveRecord::Schema.define(version: 20_220_117_213_334) do
   create_table 'answers', force: :cascade do |t|
     t.boolean 'correct', default: false, null: false
     t.string 'content', null: false
@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(version: 20_220_112_153_138) do
     t.integer 'category_id'
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
+    t.integer 'seconds_for_passage', default: 60, null: false
     t.index ['author_id'], name: 'index_tests_on_author_id'
     t.index ['category_id'], name: 'index_tests_on_category_id'
   end

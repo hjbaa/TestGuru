@@ -1,4 +1,6 @@
 document.addEventListener('turbolinks:load', function () {
+    if (window.location.href !== 'http://localhost:3000/admin/tests') { return }
+
     let controls = document.querySelectorAll('.form-inline-link');
     if (controls.length) {
         for (let i = 0; i < controls.length; i++) {

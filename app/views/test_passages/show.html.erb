@@ -1,5 +1,21 @@
 <h1> Passing the <%= @test_passage.test.title %> Test </h1>
 
+<%= content_tag :div, id: 'timer', data: { time_for_passage: @test_passage.test.seconds_for_test } do %>
+  <h2>Time left: </h2>
+  <table class="table table-bordered text-center">
+    <thead>
+      <tr>
+        <th>Hours</th>
+        <th>Minutes</th>
+        <th>Seconds</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= time_parser %>
+    </tbody>
+  </table>
+<% end %>
+
 <h3>
   <%= @test_passage.current_question.title %>
 </h3>
@@ -29,7 +45,7 @@
   <% end %>
 
   <div class="btn-group mb-4" role="group" aria-label="Basic example">
-    <%= f.submit 'Next', class: 'btn btn-outline-primary btn-md', id: 'submit-button' %>
+    <%= f.submit 'Next', class: 'btn btn-outline-primary btn-md', id: 'submit-button', name: 'button-to-next-question' %>
     <%= link_to 'Create gist', test_passage_gists_path(@test_passage),
                 class: 'btn btn-outline-secondary btn-md', method: :post%>
   </div>
