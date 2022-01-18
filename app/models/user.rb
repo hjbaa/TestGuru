@@ -18,10 +18,6 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true, format: URI::MailTo::EMAIL_REGEXP
   validates :name, presence: true
 
-  def non_expired_test_passages
-    # dsad
-  end
-
   def passed_tests(tests_level)
     tests.where(level: tests_level)
   end

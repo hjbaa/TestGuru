@@ -1,6 +1,7 @@
 <h1> Passing the <%= @test_passage.test.title %> Test </h1>
 
-<%= content_tag :div, id: 'timer', data: { time_for_passage: @test_passage.test.seconds_for_test } do %>
+
+<div id="timer">
   <h2>Time left: </h2>
   <table class="table table-bordered text-center">
     <thead>
@@ -14,7 +15,8 @@
       <%= time_parser %>
     </tbody>
   </table>
-<% end %>
+</div>
+
 
 <h3>
   <%= @test_passage.current_question.title %>

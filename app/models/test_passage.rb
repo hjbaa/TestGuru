@@ -15,11 +15,9 @@ class TestPassage < ApplicationRecord
   end
 
   def completed?
-    current_question.nil?
-  end
+    self.current_question = nil if created_at + test.seconds_for_passage.seconds < Time.current
 
-  def expired?
-    created_at + test.seconds_for_passage.seconds < Time.current
+    current_question.nil?
   end
 
   def correct_percentage
