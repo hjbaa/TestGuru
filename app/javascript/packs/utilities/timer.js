@@ -1,8 +1,6 @@
 document.addEventListener('turbolinks:load', function () {
-
-    let timer = document.getElementById('timer');
-    if (timer) { time_counter(); }
-
+    const timer = document.getElementById('timer');
+    if (timer) time_counter();
 })
 
 function time_counter() {

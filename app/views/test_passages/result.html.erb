@@ -7,6 +7,10 @@
     <p>You <strong>passed</strong> the test!</p>
 <% else %>
   <div class="alert alert-danger">
+    <% if @test_passage.correct_percentage >= 85 %>
+      <p><strong>Time is over!</strong></p>
+    <% end %>
+
     <p>You <strong>did not passed </strong> the test!</p>
 <% end %>
 

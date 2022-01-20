@@ -1,22 +1,22 @@
 <h1> Passing the <%= @test_passage.test.title %> Test </h1>
 
-
-<div id="timer">
-  <h2>Time left: </h2>
-  <table class="table table-bordered text-center">
-    <thead>
-      <tr>
-        <th>Hours</th>
-        <th>Minutes</th>
-        <th>Seconds</th>
-      </tr>
-    </thead>
-    <tbody>
-      <%= time_parser %>
-    </tbody>
-  </table>
-</div>
-
+<% if @test_passage.time_is_set? %>
+  <div id="timer">
+    <h2>Time left: </h2>
+    <table class="table table-bordered text-center">
+      <thead>
+        <tr>
+          <th>Hours</th>
+          <th>Minutes</th>
+          <th>Seconds</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= time_parser %>
+      </tbody>
+    </table>
+  </div>
+<% end %>
 
 <h3>
   <%= @test_passage.current_question.title %>
