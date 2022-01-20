@@ -15,7 +15,7 @@ class TestPassage < ApplicationRecord
   end
 
   def completed?
-    current_question.nil?
+    expired? || current_question.nil?
   end
 
   def correct_percentage
@@ -27,13 +27,24 @@ class TestPassage < ApplicationRecord
   end
 
   def success?
+    return false if expired?
+
     correct_percentage >= PASSAGE_THRESHOLD
+  end
+
+  def time_is_set?
+    !test.seconds_for_passage.nil?
   end
 
   private
 
+  def expired?
+    time_is_set? && created_at + test.seconds_for_passage.seconds < Time.current
+  end
+
   def next_question
     return test.questions.first if current_question.nil?
+    return nil if expired?
 
     test.questions.order(:id).where('id > ?', current_question.id).first
   end

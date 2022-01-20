@@ -14,6 +14,7 @@ import 'packs/utilities/password_coincidence.js'
 import 'packs/utilities/my_progress.js'
 import 'packs/utilities/form_inline.js'
 import 'packs/utilities/sorting.js'
+import 'packs/utilities/timer.js'
 
 Rails.start()
 Turbolinks.start()

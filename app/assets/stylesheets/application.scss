@@ -13,6 +13,10 @@
     display: none;
 }
 
+main {
+    min-height: 33.55rem;
+}
+
 #myProgress {
     width: 100%;
     background-color: #ddd;
@@ -27,4 +31,8 @@
     line-height: 30px;
     color: white;
     border-radius: 4px;
+}
+
+#h, #m, #s {
+    font-size: 28px;
 }
