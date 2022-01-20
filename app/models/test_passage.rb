@@ -15,9 +15,7 @@ class TestPassage < ApplicationRecord
   end
 
   def completed?
-    return true if expired?
-
-    current_question.nil?
+    expired? || current_question.nil?
   end
 
   def correct_percentage
@@ -46,7 +44,6 @@ class TestPassage < ApplicationRecord
 
   def next_question
     return test.questions.first if current_question.nil?
-
     return nil if expired?
 
     test.questions.order(:id).where('id > ?', current_question.id).first

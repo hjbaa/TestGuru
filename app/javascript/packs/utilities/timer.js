@@ -15,8 +15,7 @@ function time_counter() {
     if (seconds !== 0) {
         secondsDisplay.textContent = String(--seconds)
     } else if (minutes === 0 && hours === 0) {
-        let nextButton = document.getElementsByName('button-to-next-question')[0];
-        setTimeout(() => nextButton.click(), 1000);
+        document.getElementById('submit-button').click();
     } else if (hours === 0) {
         minutesDisplay.textContent = String(minutes - 1);
         secondsDisplay.textContent = '59'
