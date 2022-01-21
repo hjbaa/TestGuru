@@ -1,9 +1,6 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-
   devise :database_authenticatable,
          :registerable,
          :recoverable,
@@ -11,6 +8,8 @@ class User < ApplicationRecord
          :validatable,
          :confirmable
 
+  has_many :badges_users, class_name: 'BadgesUsers', dependent: :delete_all
+  has_many :badges, through: :badges_users
   has_many :created_tests, class_name: 'Test', foreign_key: 'author_id', dependent: :destroy
   has_many :test_passages, dependent: :delete_all
   has_many :tests, through: :test_passages
