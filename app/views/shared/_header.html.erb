@@ -3,12 +3,11 @@
 
     <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
       <li><%= link_to 'TestGuru', root_path, class: 'nav-link px-2 text-white' %></li>
+      <li><%= link_to 'Badges', badges_path, class: 'nav-link px-2 text-white' %></li>
       <% if current_user.is_a?(Admin) %>
         <li><%= link_to 'Admin panel', admin_tests_path, class: 'nav-link px-2 text-white'  %></li>
         <li><%= link_to 'Created Gists', admin_gists_path, class: 'nav-link px-2 text-white' %></li>
-        <li><%= link_to 'Badges', admin_badges_path, class: 'nav-link px-2 text-white' %></li>
-      <% else %>
-        <li><%= link_to 'Badges', badges_path, class: 'nav-link px-2 text-white' %></li>
+        <li><%= link_to 'Badges (admin)', admin_badges_path, class: 'nav-link px-2 text-white' %></li>
       <% end %>
     </ul>
 
