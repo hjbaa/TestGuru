@@ -1,0 +1,56 @@
+<%= render 'shared/errors', object: @badge %>
+
+<%= form_with model: [:admin, @badge], local: true, id: 'badge-form' do |f| %>
+  <div class="mb-3 row">
+    <div class="col-sm-2 col-form-label">
+      <%= f.label :name %>
+    </div>
+
+    <div class="col-sm-10">
+      <%= f.text_field :name, placeholder: 'Title', class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <div class="col-sm-2 col-form-label">
+      <%= f.label :description %>
+    </div>
+
+    <div class="col-sm-10">
+      <%= f.text_field :description, placeholder: 'Desc', class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <div class="col-sm-2 col-form-label">
+      <%= f.label :image %>
+    </div>
+
+    <div class="col-sm-10">
+      <%= f.text_field :image, placeholder: 'Image name', class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <div class="col-sm-2 col-form-label">
+      <%= f.label :rule %>
+    </div>
+
+    <div class="col-sm-10">
+      <%= f.select :rule, Badge.rules.keys, {}, class: 'form-select form-select-md', id: 'rule-select' %>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <div class="col-sm-2 col-form-label">
+      <%= f.label :option %>
+    </div>
+
+    <div class="col-sm-10">
+      <%= f.text_field :option, placeholder: 'text title/test level/category title', class: 'form-control' %>
+    </div>
+  </div>
+
+<!--  TODO переделать через селект, а не через текст-->
+  <%= f.submit "Submit", class: 'btn btn-outline-primary btn-md mb-4' %>
+<% end %>

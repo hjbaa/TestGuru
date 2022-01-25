@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateBadges < ActiveRecord::Migration[6.1]
   def change
     create_table :badges do |t|
@@ -5,9 +7,7 @@ class CreateBadges < ActiveRecord::Migration[6.1]
       t.string :description
       t.string :image
       t.integer :rule, null: false
-      t.string :test_name
-      t.string :test_category
-      t.integer :test_level
+      t.string :option
       t.timestamps
     end
   end

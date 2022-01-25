@@ -8,6 +8,10 @@
   </div>
 
   <div class="card-footer">
-    <%= link_to 'Start test', start_test_path(test), class: 'btn btn-outline-success btn-md', data: {method: :post}%>
+    <% if test.questions.count.zero? %>
+      <%= link_to 'Start test', start_test_path(test), class: 'btn btn-outline-success btn-md disabled', data: {method: :post}%>
+    <% else %>
+      <%= link_to 'Start test', start_test_path(test), class: 'btn btn-outline-success btn-md', data: {method: :post}%>
+    <% end %>
   </div>
 </div>
