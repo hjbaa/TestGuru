@@ -1,0 +1,7 @@
+<h1 class="mb-4">Badges</h1>
+
+<%= link_to 'New badge', new_admin_badge_path, class: 'btn btn-outline-primary btn-md mb-4 m-1' %>
+<%= render 'shared/errors', object: @badge %>
+<div class="mb-4">
+  <%= render @badges %>
+</div>

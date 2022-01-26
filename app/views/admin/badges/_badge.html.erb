@@ -1,0 +1,18 @@
+<div class="card text-black bg-light m-1 mb-4 d-inline-block" style="min-width: 20rem;">
+  <div class="card-header"> <h3 class="card-title">Title: <%= badge.name %></h3></div>
+  <div class="card-body">
+    <h6 class="card-subtitle">Description: <%= badge.description %></h6><br/>
+    <p class="card-text">Rule: <%= badge.rule %></p>
+    <%= rule_helper(badge) %>
+    <%= image_tag "#{badge.image}", alt: "#{badge.image}", class: 'img-thumbnail' %>
+  </div>
+
+  <div class="card-footer text-center">
+    <div class="btn-group btn-group-md" role="group">
+      <%= link_to 'Edit', edit_admin_badge_path(badge), class: 'btn btn-outline-secondary' %>
+
+      <%= link_to 'Destroy', admin_badge_path(badge), class: 'btn btn-outline-danger',
+                  data: {method: :delete, confirm: 'Are you sure?'} %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<% if current_user.badges.present? %>
+  <h1 class="mb-2">Your badges</h1>
+  <%= render current_user.badges %>
+<% else %>
+  <div class="alert alert-warning">
+    You <strong>don't have</strong> any badges yet!
+    <%= link_to "Start passing tests to get them!", tests_path %>
+  </div>
+<% end %>
+
+<h1 class="mb-2">All badges</h1>
+
+<div class="mb-4">
+  <%= render @badges %>
+</div>

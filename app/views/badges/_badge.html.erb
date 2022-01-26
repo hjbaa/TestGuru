@@ -1,0 +1,9 @@
+<div class="card text-black bg-light m-1 mb-4 d-inline-block" style="min-width: 20rem;">
+  <div class="card-header"> <h3 class="card-title"><%= badge.name %></h3></div>
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2"><%= badge.description %></h6>
+    <div class="text-center">
+      <%= image_tag "#{badge.image}", alt: "#{badge.image}", class: 'img-thumbnail' %>
+    </div>
+  </div>
+</div>
